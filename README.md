@@ -9,7 +9,7 @@ Complex entities, arrays and IEnumerable are also supported.
 
 `using WebGate.Azure.CloudTableUtils.CloudTableExtension`
 
-This Extension enables you to do CRUD Operations with your Poco direct to the CloudTable. The Poco do not have to extend TableEntity. The Object De/Serialisation is done inside of the functions and DynamicTableEntity are used to store and retrieve data.
+This Extension enables you to do CRUD Operations with your Poco direct to the CloudTable. The Poco does not have to extend TableEntity. The Object De/Serialisation is done inside of the functions and DynamicTableEntity are used to store and retrieve data.
 
 The following operations are provided:
 
@@ -19,7 +19,7 @@ The following operations are provided:
 List<MyPoco> pocos = await cloudTable.GetAllAsync<MyPoco>();
 ```
 
-Gets all data from a table and convert them into the specified Object. No partition key is applied.
+Gets all data from a table and convert them into the specified object. No partition key is applied.
 
 ### GetAllAsync<T>(string partition)
 
@@ -27,7 +27,7 @@ Gets all data from a table and convert them into the specified Object. No partit
 List<MyPoco> pocos = await cloudTable.GetAllAsync<MyPoco>('mypoco');
 ```
 
-Gets all data from a table and convert them into the specified Object. A partitionkey is applied. The current example applies 'mypoco' as partitionkey.
+Gets all data from a table and convert it to the specified Object. A partitionkey is applied. The current example applies 'mypoco' as partitionkey.
 
 ### GetByIdAsync<T>(string id)
 
@@ -35,7 +35,7 @@ Gets all data from a table and convert them into the specified Object. A partiti
 MyPoco poco = await.GetByIdAsync<MyPoco>('1018301');
 ```
 
-Gets as specific enitity form the table and convert it to the specified object. The name of the type is used as partitionkey. In the current example 'MyPoco'
+Gets as specific entity from the table and convert it to the specified object. The name of the type is used as partitionkey. In the current example 'MyPoco'
 
 ### GetByIdAsync<T>(string id, string partition)
 
@@ -43,7 +43,7 @@ Gets as specific enitity form the table and convert it to the specified object. 
 MyPoco poco = await.GetByIdAsync<MyPoco>('9201u819','mypoco');
 ```
 
-Gets as specific enitity form the table and convert it to the specified object. The partionkey is the 2nd argument.
+Gets as specific entity from the table and convert it to the specified object. The partionkey is the 2nd argument.
 
 ### GetAllByQueryAsync(TableQuery query)
 
@@ -52,9 +52,9 @@ TableQuery<DynamicTableEntity> query = new TableQuery<DynamicTableEntity>();
 List<MyPoco> pocos = await cloudTable.GetAllByQueryAsync<MyPoco>(query);
 ```
 
-Gets alls entites that matches the query.
+Gets all entities that matches the query.
 
-### InserOrMergeAsync(string id, string partition, object obj)
+### InsertOrMergeAsync(string id, string partition, object obj)
 
 ```c#
 MyPoco poco = new MyPoco();
@@ -64,7 +64,7 @@ TableResult result = await cloudTable.InsertOrMergeAsync("001", "SimplePoco", po
 
 Creates or merges a specific object into the cloud table. The selection is done by id and partitionkey.
 
-### InserOrReplaceAsync(string id, string partition, object obj)
+### InsertOrReplaceAsync(string id, string partition, object obj)
 
 ```c#
 MyPoco poco = new MyPoco();
@@ -80,7 +80,7 @@ Creates or replace a specific object into the cloud table. The selection is done
 TableResult result = await cloudTable.DeleteAsync("001", "SimplePoco");
 ```
 
-Deletes a specific object into the cloud table. The selection is done by id and partitionkey.
+Deletes a specific object from the cloud table. The selection is done by id and partitionkey.
 
 ---
 
